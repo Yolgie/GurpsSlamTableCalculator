@@ -1,4 +1,4 @@
-# gurpsslamtablecalculator
+# GURPS Slam Table Calculator
 
 ## Project setup
 ```
