@@ -1,4 +1,4 @@
 module.exports = {
-  publicPath: '/GupsSlamTableCalculator/',
+  publicPath: '/GurpsSlamTableCalculator/',
   outputDir: 'docs'
 }
