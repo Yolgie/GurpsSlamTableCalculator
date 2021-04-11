@@ -22,10 +22,6 @@
       </table>
     </div>
 
-    <!-- todo add sources in book B371 & B430 -->
-    <!-- todo add short description -->
-    <!-- todo add aria stuff -->
-    <!-- todo change todo's to tickets -->
   </div>
 </template>
 
@@ -87,7 +83,6 @@ export default class SlamTableCalculator extends Vue {
 </script>
 
 <style scoped>
-/* todo add more styling */
 #root {
   display: flex;
   flex-direction: column;

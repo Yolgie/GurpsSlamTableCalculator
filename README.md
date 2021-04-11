@@ -1,27 +1,7 @@
 # GURPS Slam Table Calculator
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Vue cli project, hosted on github pages to calculate the slam/damage tables for GURPS.
+Calculate for your character and add to your char sheet to save a lot of time and get a feel for it.
 
 #### Disclaimer
 GURPS is a trademark of Steve Jackson Games, and its rules and art are copyrighted by Steve Jackson Games. All
