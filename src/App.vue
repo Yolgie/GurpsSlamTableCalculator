@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <div class="content">
+    <main class="content">
       <h1 class="text--center">GURPS Slam Table Calculator</h1>
       <SlamTableCalculator/>
-    </div>
+    </main>
 
     <footer class="disclaimer">
       <h4>Disclaimer</h4>
@@ -29,27 +29,30 @@ export default class App extends Vue {
 </script>
 
 <style>
+html, body {
+  height: 100vh;
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-}
-
-/* todo fix sticky footer */
-#app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .content {
   flex: 1;
+  overflow: auto;
+  margin: 40px 60px 0 60px;
 }
 
 footer {
   text-align: left;
+  padding: 0 8px 5px 8px;
 }
 </style>
