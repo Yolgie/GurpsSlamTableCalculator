@@ -1,5 +1,8 @@
 # GURPS Slam Table Calculator
 
+[![NPM Build and Deploy to Github Pages](https://github.com/Yolgie/GurpsSlamTableCalculator/actions/workflows/buildAndDeploy.yml/badge.svg)](https://github.com/Yolgie/GurpsSlamTableCalculator/actions/workflows/buildAndDeploy.yml)
+[![Github Super Linter](https://github.com/Yolgie/GurpsSlamTableCalculator/actions/workflows/superlinter.yml/badge.svg)](https://github.com/Yolgie/GurpsSlamTableCalculator/actions/workflows/superlinter.yml)
+
 Vue cli project, hosted on github pages to calculate the slam/damage tables for GURPS.
 Calculate for your character and add to your char sheet to save a lot of time and get a feel for it.
 
