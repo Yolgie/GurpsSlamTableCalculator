@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div>
+  <div id="root">
+    <div id="hp-input">
       <label>
         HP
         <input type="number" v-model.number="hp" @keyup.enter="calculate">
@@ -8,9 +8,8 @@
       <button v-on:click="calculate">Generate</button>
     </div>
 
-    <div class="slam-table" v-if="slamTable.length > 0">
-      <table>
-        <caption>Table shows the damage for each range of speed with the given HP.</caption>
+    <div id="slam-table" v-if="slamTable.length > 0">
+      <table class="rtable rtable--flip">
         <tr>
           <th scope="col">Speed Range</th>
           <th scope="col">Damage</th>
@@ -19,6 +18,7 @@
           <td>{{ tableEntry.speedRange }}</td>
           <td>{{ tableEntry.damage }}</td>
         </tr>
+        <!--        <caption>Table shows the damage for each range of speed with the given HP.</caption>-->
       </table>
     </div>
 
@@ -67,7 +67,7 @@ export default class SlamTableCalculator extends Vue {
 
   private static toRangeString(numbers: number[]): string {
     if (numbers.length <= 0) {
-      return ""
+      return "-"
     } else if (numbers.length == 1) {
       return numbers[0].toString()
     } else {
@@ -79,4 +79,31 @@ export default class SlamTableCalculator extends Vue {
 
 <style scoped>
 /* todo add styling */
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+#slam-table {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+#slam-table table {
+  border-spacing: unset;
+}
+
+#slam-table th {
+  text-align: left;
+  text-transform: uppercase;
+  background: #f2f0e6;
+}
+
+#slam-table th,
+#slam-table td {
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 1px solid #d9d7ce;
+}
 </style>
