@@ -14,7 +14,7 @@
           <th scope="col">Speed Range</th>
           <th scope="col">Damage</th>
         </tr>
-        <tr v-for="tableEntry in slamTable" :key="tableEntry.damage">
+        <tr v-for="tableEntry in slamTable" :key="tableEntry.damage.toString()">
           <td>{{ tableEntry.speedRange }}</td>
           <td>{{ tableEntry.damage }}</td>
         </tr>
@@ -25,60 +25,69 @@
     <!-- todo add sources in book B371 & B430 -->
     <!-- todo add short description -->
     <!-- todo add aria stuff -->
+    <!-- todo change todo's to tickets -->
   </div>
 </template>
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
-import SlamTableEntry from "@/types/slamTableEntry";
+import SlamTableEntry from "@/types/SlamTableEntry";
+import DamageLimit from "@/types/DamageLimit";
+import Dice from "@/types/Dice";
+import Range from "@/types/Range";
 
 @Component
 export default class SlamTableCalculator extends Vue {
   hp = 10
-  slamTable: SlamTableEntry[] = []
+  slamTable: Array<SlamTableEntry> = []
 
-  calculate(): SlamTableEntry[] {
-    let damageLimits = new Map([
-      ["1d-3", 25],
-      ["1d-2", 50],
-      ["1d-1", 100],
-      ["1d", 150],
-      ["2d", 250],
-      ["3d", 350]
-    ])
+  private static untilSpeed = 25
+  private static initialDamageLimits: Array<DamageLimit> = [ // see B371
+    {dice: new Dice(1, -3), limit: 25},
+    {dice: new Dice(1, -2), limit: 50},
+    {dice: new Dice(1, -1), limit: 100},
+    {dice: new Dice(1), limit: 150}
+  ]
 
-    let table: SlamTableEntry[] = []
+  mounted(): void {
+    this.calculate()
+  }
+
+  calculate(): void {
+    let table: Array<SlamTableEntry> = []
     let currentSpeed = 1
 
-    for (const [damage, limit] of damageLimits.entries()) {
-      let currentRange: number[] = []
+    for (const damageLimit of this.getDamageLimitsUntilSpeed(SlamTableCalculator.untilSpeed)) {
+      let currentRange = new Range()
 
-      while (this.hp * currentSpeed < limit) {
-        currentRange.push(currentSpeed)
+      while (this.hp * currentSpeed < damageLimit.limit) {
+        currentRange.expandTo(currentSpeed)
         currentSpeed++
       }
 
-      table.push({speedRange: SlamTableCalculator.toRangeString(currentRange), damage: damage})
+      table.push({speedRange: currentRange, damage: damageLimit.dice})
     }
 
     this.slamTable = table
-    return table
   }
 
-  private static toRangeString(numbers: number[]): string {
-    if (numbers.length <= 0) {
-      return "-"
-    } else if (numbers.length == 1) {
-      return numbers[0].toString()
-    } else {
-      return numbers[0].toString() + "-" + numbers[numbers.length - 1]
+  private getDamageLimitsUntilSpeed(speed: number): Array<DamageLimit> {
+    let damageLimits = [...SlamTableCalculator.initialDamageLimits]
+
+    while (damageLimits[damageLimits.length - 1].limit <= this.hp * speed) {
+      const lastDamageLimit = damageLimits[damageLimits.length - 1]
+      // see B371
+      let nextDice = new Dice(lastDamageLimit.dice.count + 1)
+      let nextLimit = lastDamageLimit.limit + 100
+      damageLimits.push({limit: nextLimit, dice: nextDice})
     }
+    return damageLimits
   }
 }
 </script>
 
 <style scoped>
-/* todo add styling */
+/* todo add more styling */
 #root {
   display: flex;
   flex-direction: column;

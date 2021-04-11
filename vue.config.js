@@ -1,4 +1,7 @@
 module.exports = {
-  publicPath: '/GurpsSlamTableCalculator/',
-  outputDir: 'docs'
+    publicPath: '/GurpsSlamTableCalculator/',
+    outputDir: 'docs',
+    configureWebpack: {
+        devtool: 'source-map',
+    }
 }
