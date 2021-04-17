@@ -8,14 +8,14 @@ class Dice {
     }
 
     private getCountString(): string {
-        if (this.count != 0) {
+        if (this.count !== 0) {
             return `${this.count}d`
         }
         return ''
     }
 
     private getModString(): string {
-        if (this.mod != 0) {
+        if (this.mod !== 0) {
             const signString = (this.mod > 0) ? '+' : ''
             return signString + this.mod.toString()
         }
