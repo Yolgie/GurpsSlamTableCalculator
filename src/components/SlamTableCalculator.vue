@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 import SlamTableEntry from '@/types/SlamTableEntry'
 import DamageLimit from '@/types/DamageLimit'
 import Dice from '@/types/Dice'
@@ -39,17 +39,17 @@ export default class SlamTableCalculator extends Vue {
 
   private static untilSpeed = 25
   private static initialDamageLimits: Array<DamageLimit> = [ // see B371
-    {dice: new Dice(1, -3), limit: 25},
-    {dice: new Dice(1, -2), limit: 50},
-    {dice: new Dice(1, -1), limit: 100},
-    {dice: new Dice(1), limit: 150}
+    { dice: new Dice(1, -3), limit: 25 },
+    { dice: new Dice(1, -2), limit: 50 },
+    { dice: new Dice(1, -1), limit: 100 },
+    { dice: new Dice(1), limit: 150 }
   ]
 
-  mounted(): void {
+  mounted (): void {
     this.calculate()
   }
 
-  calculate(): void {
+  calculate (): void {
     let table: Array<SlamTableEntry> = []
     let currentSpeed = 1
 
@@ -61,13 +61,13 @@ export default class SlamTableCalculator extends Vue {
         currentSpeed++
       }
 
-      table.push({speedRange: currentRange, damage: damageLimit.dice})
+      table.push({ speedRange: currentRange, damage: damageLimit.dice })
     }
 
     this.slamTable = table
   }
 
-  private getDamageLimitsUntilSpeed(speed: number): Array<DamageLimit> {
+  private getDamageLimitsUntilSpeed (speed: number): Array<DamageLimit> {
     let damageLimits = [...SlamTableCalculator.initialDamageLimits]
 
     while (damageLimits[damageLimits.length - 1].limit <= this.hp * speed) {
@@ -75,7 +75,7 @@ export default class SlamTableCalculator extends Vue {
       // see B371
       let nextDice = new Dice(lastDamageLimit.dice.count + 1)
       let nextLimit = lastDamageLimit.limit + 100
-      damageLimits.push({limit: nextLimit, dice: nextDice})
+      damageLimits.push({ limit: nextLimit, dice: nextDice })
     }
     return damageLimits
   }
