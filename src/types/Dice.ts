@@ -1,10 +1,10 @@
 class Dice {
-    count: number;
-    mod: number;
+    count: number
+    mod: number
 
     constructor(count = 0, mod = 0) {
-        this.count = count;
-        this.mod = mod;
+        this.count = count
+        this.mod = mod
     }
 
     private getCountString(): string {

@@ -9,7 +9,7 @@
     </div>
 
     <div id="slam-table" v-if="slamTable.length > 0">
-      <table class="rtable rtable--flip">
+      <table>
         <tr>
           <th scope="col">Speed Range</th>
           <th scope="col">Damage</th>
@@ -26,11 +26,11 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
-import SlamTableEntry from "@/types/SlamTableEntry";
-import DamageLimit from "@/types/DamageLimit";
-import Dice from "@/types/Dice";
-import Range from "@/types/Range";
+import {Component, Vue} from 'vue-property-decorator'
+import SlamTableEntry from "@/types/SlamTableEntry"
+import DamageLimit from "@/types/DamageLimit"
+import Dice from "@/types/Dice"
+import Range from "@/types/Range"
 
 @Component
 export default class SlamTableCalculator extends Vue {
