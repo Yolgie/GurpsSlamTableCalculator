@@ -27,10 +27,10 @@
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator'
-import SlamTableEntry from "@/types/SlamTableEntry"
-import DamageLimit from "@/types/DamageLimit"
-import Dice from "@/types/Dice"
-import Range from "@/types/Range"
+import SlamTableEntry from '@/types/SlamTableEntry'
+import DamageLimit from '@/types/DamageLimit'
+import Dice from '@/types/Dice'
+import Range from '@/types/Range'
 
 @Component
 export default class SlamTableCalculator extends Vue {

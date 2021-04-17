@@ -11,15 +11,15 @@ class Dice {
         if (this.count != 0) {
             return `${this.count}d`
         }
-        return ""
+        return ''
     }
 
     private getModString(): string {
         if (this.mod != 0) {
-            const signString = (this.mod > 0) ? "+" : ""
+            const signString = (this.mod > 0) ? '+' : ''
             return signString + this.mod.toString()
         }
-        return ""
+        return ''
     }
 
     toString(): string {

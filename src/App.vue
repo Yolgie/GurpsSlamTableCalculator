@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator'
-import SlamTableCalculator from "@/components/SlamTableCalculator.vue"
+import SlamTableCalculator from '@/components/SlamTableCalculator.vue'
 
 @Component({
   components: {
