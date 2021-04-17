@@ -1,9 +1,9 @@
 class Range {
-  min: number | undefined = undefined
-  max: number | undefined = undefined
+  private min: number | undefined = undefined
+  private max: number | undefined = undefined
 
   constructor (number: number | undefined = undefined) {
-    if (number != undefined) {
+    if (number !== undefined) {
       this.min = number
       this.max = number
     }
@@ -19,7 +19,7 @@ class Range {
   }
 
   toString (): string {
-    if (this.min === undefined) {
+    if (this.min === undefined || this.max === undefined) {
       return '-'
     } else if (this.min === this.max) {
       return this.min.toString()

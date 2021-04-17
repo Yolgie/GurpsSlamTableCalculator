@@ -1,6 +1,6 @@
 class Dice {
-  count: number
-  mod: number
+  readonly count: number
+  readonly mod: number
 
   constructor (count = 0, mod = 0) {
     this.count = count
