@@ -3,9 +3,14 @@
     <div id="hp-input">
       <label>
         HP
-        <input type="number" v-model.number="hp" @keyup.enter="calculate">
+        <input class="numberInput"
+               type="number"
+               step="1"
+               min="1"
+               max="999"
+               v-model.number="hp"
+               v-on:change="calculate">
       </label>
-      <button v-on:click="calculate">Generate</button>
     </div>
 
     <div id="slam-table" v-if="slamTable.length > 0">
@@ -50,6 +55,10 @@ export default class SlamTableCalculator extends Vue {
   }
 
   calculate (): void {
+    if (this.hp < 1) {
+      this.hp = 1
+    }
+
     let table: Array<SlamTableEntry> = []
     let currentSpeed = 1
 
