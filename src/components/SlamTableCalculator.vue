@@ -14,7 +14,7 @@
     </div>
 
     <div id="slam-table" v-if="slamTable.length > 0">
-      <table>
+      <table aria-label="Table that shows the damage for each range of speed with the given HP.">
         <tr>
           <th scope="col">Speed Range</th>
           <th scope="col">Damage</th>
@@ -23,7 +23,6 @@
           <td>{{ tableEntry.speedRange }}</td>
           <td>{{ tableEntry.damage }}</td>
         </tr>
-        <!--        <caption>Table shows the damage for each range of speed with the given HP.</caption>-->
       </table>
     </div>
 
@@ -42,7 +41,7 @@ export default class SlamTableCalculator extends Vue {
   hp = 10
   slamTable: Array<SlamTableEntry> = []
 
-  private static untilSpeed = 25
+  private static untilSpeed = 35
   private static initialDamageLimits: Array<DamageLimit> = [ // see B371
     { dice: new Dice(1, -3), limit: 25 },
     { dice: new Dice(1, -2), limit: 50 },
