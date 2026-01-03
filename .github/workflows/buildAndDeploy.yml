@@ -21,7 +21,7 @@ jobs:
           NODE_ENV: production
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@de92b5c38d655b4c7c5c5a0059c2c0e2e24b1804 # v4.4.1
+        uses: JamesIves/github-pages-deploy-action@9d877eea73427180ae43cf98e8914934fe157a1a # v4.7.6
         with:
           branch: gh-pages
           folder: dist
