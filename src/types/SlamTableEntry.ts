@@ -1,5 +1,5 @@
-import Dice from '@/types/Dice'
-import Range from '@/types/Range'
+import type Dice from '@/types/Dice'
+import type Range from '@/types/Range'
 
 type SlamTableEntry = {
   speedRange: Range

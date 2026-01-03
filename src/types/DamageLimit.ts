@@ -1,4 +1,4 @@
-import Dice from '@/types/Dice'
+import type Dice from '@/types/Dice'
 
 type DamageLimit = {
   limit: number

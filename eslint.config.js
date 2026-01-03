@@ -1,33 +1,17 @@
-import js from '@eslint/js'
-import pluginVue from 'eslint-plugin-vue'
-import * as parserVue from 'vue-eslint-parser'
-import * as parserTypeScript from '@typescript-eslint/parser'
-import pluginTypeScript from '@typescript-eslint/eslint-plugin'
+import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
 
-export default [
-  js.configs.recommended,
-  ...pluginVue.configs['flat/recommended'],
+export default defineConfigWithVueTs([
   {
-    files: ['**/*.{ts,tsx,vue}'],
-    languageOptions: {
-      parser: parserVue,
-      parserOptions: {
-        parser: parserTypeScript,
-        ecmaVersion: 'latest',
-        sourceType: 'module'
-      }
-    },
-    plugins: {
-      '@typescript-eslint': pluginTypeScript
-    },
-    rules: {
-      ...pluginTypeScript.configs.recommended.rules,
-      'no-console': 'warn',
-      'no-debugger': 'warn',
-      'vue/multi-word-component-names': 'off'
-    }
+    ignores: ['dist', 'node_modules', 'coverage', '*.config.ts', '*.config.js']
   },
+
+  // Strict Vue 3 + TypeScript defaults with type-aware linting
+  vueTsConfigs.strictTypeChecked,
+
+  // Minimal overrides
   {
-    ignores: ['dist', 'node_modules', 'coverage']
+    rules: {
+      'vue/multi-word-component-names': 'off' // App.vue is fine
+    }
   }
-]
+])

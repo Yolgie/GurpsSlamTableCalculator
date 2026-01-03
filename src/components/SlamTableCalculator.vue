@@ -63,13 +63,13 @@ const hp = ref(10)
 const slamTable = ref<Array<SlamTableEntry>>([])
 
 function getDamageLimitsUntilSpeed(speed: number): Array<DamageLimit> {
-  let damageLimits = [...INITIAL_DAMAGE_LIMITS]
+  const damageLimits = [...INITIAL_DAMAGE_LIMITS]
 
   while (damageLimits[damageLimits.length - 1].limit <= hp.value * speed) {
     const lastDamageLimit = damageLimits[damageLimits.length - 1]
     // see B371
-    let nextDice = new Dice(lastDamageLimit.dice.count + 1)
-    let nextLimit = lastDamageLimit.limit + 100
+    const nextDice = new Dice(lastDamageLimit.dice.count + 1)
+    const nextLimit = lastDamageLimit.limit + 100
     damageLimits.push({ limit: nextLimit, dice: nextDice })
   }
   return damageLimits
@@ -80,11 +80,11 @@ function calculate(): void {
     hp.value = 1
   }
 
-  let table: Array<SlamTableEntry> = []
+  const table: Array<SlamTableEntry> = []
   let currentSpeed = 1
 
   for (const damageLimit of getDamageLimitsUntilSpeed(UNTIL_SPEED)) {
-    let currentRange = new Range()
+    const currentRange = new Range()
 
     while (hp.value * currentSpeed < damageLimit.limit) {
       currentRange.expandTo(currentSpeed)

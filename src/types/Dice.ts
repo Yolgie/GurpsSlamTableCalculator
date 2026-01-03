@@ -9,7 +9,7 @@ class Dice {
 
   private getCountString (): string {
     if (this.count !== 0) {
-      return `${this.count}d`
+      return `${this.count.toString()}d`
     }
     return ''
   }
