@@ -1,31 +1,24 @@
 <template>
   <div id="app">
     <main class="content">
-      <h1 class="text--center">GURPS Slam Table Calculator</h1>
-      <SlamTableCalculator/>
+      <h1 class="text--center">
+        GURPS Slam Table Calculator
+      </h1>
+      <SlamTableCalculator />
     </main>
 
     <footer class="disclaimer">
       <h4>Disclaimer</h4>
       GURPS is a trademark of Steve Jackson Games, and its rules and art are copyrighted by Steve Jackson Games. All
       rights are reserved by Steve Jackson Games. This game aid is the original creation of Matthias Holzinger and is
-      released for free distribution, and not for resale, under the permissions granted in the <a
-        href="http://www.sjgames.com/general/online_policy.html">Steve Jackson Games Online Policy</a>.
+      released for free distribution, and not for resale, under the permissions granted in the
+      <a href="http://www.sjgames.com/general/online_policy.html">Steve Jackson Games Online Policy</a>.
     </footer>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+<script setup lang="ts">
 import SlamTableCalculator from '@/components/SlamTableCalculator.vue'
-
-@Component({
-  components: {
-    SlamTableCalculator,
-  },
-})
-export default class App extends Vue {
-}
 </script>
 
 <style>
