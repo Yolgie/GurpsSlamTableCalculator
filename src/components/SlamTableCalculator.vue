@@ -21,23 +21,23 @@
     >
       <table aria-label="Table that shows the damage for each range of speed with the given HP.">
         <thead>
-          <tr>
-            <th scope="col">
-              Speed Range
-            </th>
-            <th scope="col">
-              Damage
-            </th>
-          </tr>
+        <tr>
+          <th scope="col">
+            Speed Range
+          </th>
+          <th scope="col">
+            Damage
+          </th>
+        </tr>
         </thead>
         <tbody>
-          <tr
-            v-for="tableEntry in slamTable"
-            :key="tableEntry.damage.toString()"
-          >
-            <td>{{ tableEntry.speedRange }}</td>
-            <td>{{ tableEntry.damage }}</td>
-          </tr>
+        <tr
+          v-for="tableEntry in slamTable"
+          :key="tableEntry.damage.toString()"
+        >
+          <td>{{ tableEntry.speedRange }}</td>
+          <td>{{ tableEntry.damage }}</td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -45,7 +45,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import {onMounted, ref} from 'vue'
 import SlamTableEntry from '@/types/SlamTableEntry'
 import DamageLimit from '@/types/DamageLimit'
 import Dice from '@/types/Dice'
@@ -53,10 +53,10 @@ import Range from '@/types/Range'
 
 const UNTIL_SPEED = 35
 const INITIAL_DAMAGE_LIMITS: Array<DamageLimit> = [ // see B371
-  { dice: new Dice(1, -3), limit: 25 },
-  { dice: new Dice(1, -2), limit: 50 },
-  { dice: new Dice(1, -1), limit: 100 },
-  { dice: new Dice(1), limit: 150 }
+  {dice: new Dice(1, -3), limit: 25},
+  {dice: new Dice(1, -2), limit: 50},
+  {dice: new Dice(1, -1), limit: 100},
+  {dice: new Dice(1), limit: 150}
 ]
 
 const hp = ref(10)
@@ -70,7 +70,7 @@ function getDamageLimitsUntilSpeed(speed: number): Array<DamageLimit> {
     // see B371
     const nextDice = new Dice(lastDamageLimit.dice.count + 1)
     const nextLimit = lastDamageLimit.limit + 100
-    damageLimits.push({ limit: nextLimit, dice: nextDice })
+    damageLimits.push({limit: nextLimit, dice: nextDice})
   }
   return damageLimits
 }
@@ -91,7 +91,7 @@ function calculate(): void {
       currentSpeed++
     }
 
-    table.push({ speedRange: currentRange, damage: damageLimit.dice })
+    table.push({speedRange: currentRange, damage: damageLimit.dice})
   }
 
   slamTable.value = table

@@ -4,7 +4,7 @@
       <h1 class="text--center">
         GURPS Slam Table Calculator
       </h1>
-      <SlamTableCalculator />
+      <SlamTableCalculator/>
     </main>
 
     <footer class="disclaimer">

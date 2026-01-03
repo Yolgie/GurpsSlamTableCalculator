@@ -2,14 +2,14 @@ class Range {
   private min: number | undefined = undefined
   private max: number | undefined = undefined
 
-  constructor (number?: number  ) {
+  constructor(number?: number) {
     if (number !== undefined) {
       this.min = number
       this.max = number
     }
   }
 
-  expandTo (number: number): void {
+  expandTo(number: number): void {
     if (this.max === undefined || number > this.max) {
       this.max = number
     }
@@ -18,7 +18,7 @@ class Range {
     }
   }
 
-  toString (): string {
+  toString(): string {
     if (this.min === undefined || this.max === undefined) {
       return '-'
     } else if (this.min === this.max) {
