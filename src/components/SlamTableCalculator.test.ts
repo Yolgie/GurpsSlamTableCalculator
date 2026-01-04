@@ -11,27 +11,27 @@ describe('SlamTableCalculator', () => {
 
     it('renders HP input field', () => {
       const wrapper = mount(SlamTableCalculator)
-      const input = wrapper.find('input[type="number"]')
+      const input = wrapper.find<HTMLInputElement>('input[type="number"]')
       expect(input.exists()).toBe(true)
     })
 
     it('has default HP value of 10', () => {
       const wrapper = mount(SlamTableCalculator)
-      const input = wrapper.find('input[type="number"]')
+      const input = wrapper.find<HTMLInputElement>('input[type="number"]')
       expect(input.element.value).toBe('10')
     })
 
     it('renders slam table after mount', async () => {
       const wrapper = mount(SlamTableCalculator)
       await wrapper.vm.$nextTick()
-      const table = wrapper.find('#slam-table table')
+      const table = wrapper.find<HTMLInputElement>('#slam-table table')
       expect(table.exists()).toBe(true)
     })
 
     it('renders table headers', async () => {
       const wrapper = mount(SlamTableCalculator)
       await wrapper.vm.$nextTick()
-      const headers = wrapper.findAll('th')
+      const headers = wrapper.findAll<HTMLInputElement>('th')
       expect(headers.length).toBe(2)
       expect(headers[0].text()).toBe('Speed Range')
       expect(headers[1].text()).toBe('Damage')
@@ -41,7 +41,7 @@ describe('SlamTableCalculator', () => {
   describe('HP input validation', () => {
     it('enforces minimum HP of 1', async () => {
       const wrapper = mount(SlamTableCalculator)
-      const input = wrapper.find('input[type="number"]')
+      const input = wrapper.find<HTMLInputElement>('input[type="number"]')
 
       await input.setValue(0)
       await input.trigger('change')
@@ -51,7 +51,7 @@ describe('SlamTableCalculator', () => {
 
     it('accepts valid HP values', async () => {
       const wrapper = mount(SlamTableCalculator)
-      const input = wrapper.find('input[type="number"]')
+      const input = wrapper.find<HTMLInputElement>('input[type="number"]')
 
       await input.setValue(50)
       await input.trigger('change')
@@ -61,7 +61,7 @@ describe('SlamTableCalculator', () => {
 
     it('accepts maximum HP value of 999', async () => {
       const wrapper = mount(SlamTableCalculator)
-      const input = wrapper.find('input[type="number"]')
+      const input = wrapper.find<HTMLInputElement>('input[type="number"]')
 
       await input.setValue(999)
       await input.trigger('change')

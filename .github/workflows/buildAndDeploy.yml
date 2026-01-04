@@ -18,6 +18,12 @@ jobs:
       - name: Run tests
         run: npm run test -- --run
 
+      - name: ESlint
+        run: npm run lint
+
+      - name: TypeScript type checking
+        run: npx vue-tsc --noEmit
+
       - name: Build
         run: npm run build
         env:

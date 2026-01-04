@@ -1,7 +1,6 @@
 # GURPS Slam Table Calculator
 
 [![NPM Build and Deploy to Github Pages](https://github.com/Yolgie/GurpsSlamTableCalculator/actions/workflows/buildAndDeploy.yml/badge.svg)](https://github.com/Yolgie/GurpsSlamTableCalculator/actions/workflows/buildAndDeploy.yml)
-[![Super-Linter](https://github.com/Yolgie/GurpsSlamTableCalculator/actions/workflows/superlinter.yml/badge.svg)](https://github.com/Yolgie/GurpsSlamTableCalculator/actions/workflows/superlinter.yml)
 [![CodeQL](https://github.com/Yolgie/GurpsSlamTableCalculator/actions/workflows/codeql.yml/badge.svg)](https://github.com/Yolgie/GurpsSlamTableCalculator/actions/workflows/codeql.yml)
 
 A Vue 3 + TypeScript application to calculate slam damage tables for GURPS characters based on HP and speed values.
