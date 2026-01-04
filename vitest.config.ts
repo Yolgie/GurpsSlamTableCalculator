@@ -9,7 +9,9 @@ export default defineConfig({
     environment: 'jsdom',
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'json', 'html']
+      reporter: ['text', 'json', 'html'],
+      include: ['src/**/*.{ts,tsx,vue}'],
+      exclude: ['**/*.test.ts', '**/*.spec.ts', '**/main.ts']
     }
   },
   resolve: {
